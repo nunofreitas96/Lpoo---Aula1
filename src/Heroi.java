@@ -17,7 +17,7 @@ public class Heroi {
 		
 		labH = l;
 		int armado = 0;
-		int dragaovivo;
+		int dragaovivo = 0;
 		int posi = 0;
 		int posj = 0;
 		int posid;
@@ -47,10 +47,10 @@ public class Heroi {
 			if(labH[posi][posj-1] == 'E'){
 				labH[posi][posj] = ' ';
 				labH[posi][posj-1] = 'A';
-			}else if(labH[posi][posj-1] == 'D' || labH[posi][posj-1] == 'F'){
+			}else if(labH[posi][posj-1] == 'D' || labH[posi][posj-1] == 'F' ){
 				labH[posi][posj] = ' ';
 				labH[9][9] = 'N';
-			}else if(labH[posi][posj-1] != 'x'){
+			}else if(labH[posi][posj-1] != 'x' && labH[posi][posj-1] !='S' && labH[posi][posj-1] != 'd'){ //mudar em todos
 				labH[posi][posj] = ' ';
 				labH[posi][posj-1] = 'H';
 		}}
@@ -59,11 +59,11 @@ public class Heroi {
 				labH[posi][posj] = ' ';
 				labH[posi][posj+1] = 'A';
 			
-			}else if(labH[posi][posj+1] == 'D' || labH[posi][posj-1] == 'F'){
+			}else if(labH[posi][posj+1] == 'D' || labH[posi][posj+1] == 'F'){
 				labH[posi][posj] = ' ';
 				labH[9][9] = 'N';
 			}
-		else if(labH[posi][posj+1] != 'x' ){
+		else if(labH[posi][posj+1] != 'x' && labH[posi][posj+1] !='S' && labH[posi][posj+1] != 'd'){
 			labH[posi][posj] = ' ';
 			labH[posi][posj+1] = 'H';}
 		}
@@ -72,10 +72,10 @@ public class Heroi {
 				labH[posi][posj] = ' ';
 				labH[posi+1][posj] = 'A';
 			}
-			else if(labH[posi+1][posj] == 'D' || labH[posi][posj-1] == 'F'){
+			else if(labH[posi+1][posj] == 'D' || labH[posi+1][posj] == 'F'){
 				labH[posi][posj] = ' ';
 				labH[9][9] = 'N';
-			}else if(labH[posi+1][posj] != 'x' ){
+			}else if(labH[posi+1][posj] != 'x' && labH[posi+1][posj] !='S'&& labH[posi+1][posj] != 'd'){
 				labH[posi][posj] = ' ';
 				labH[posi+1][posj] = 'H';
 			}
@@ -85,10 +85,10 @@ public class Heroi {
 				labH[posi][posj] = ' ';
 				labH[posi-1][posj] = 'A';
 			}
-			else if(labH[posi-1][posj] == 'D' || labH[posi][posj-1] == 'F'){
+			else if(labH[posi-1][posj] == 'D' || labH[posi-1][posj] == 'F'){
 				labH[posi][posj] = ' ';
 				labH[9][9] = 'N';
-			}else if(labH[posi-1][posj] != 'x'){
+			}else if(labH[posi-1][posj] != 'x' && labH[posi-1][posj] !='S' && labH[posi-1][posj] != 'd'){
 				labH[posi][posj] = ' ';
 				labH[posi-1][posj] = 'H';
 			}
@@ -96,37 +96,37 @@ public class Heroi {
 		}
 		if(armado == 1){
 			if(move == 'W'){
-				if(labH[posi][posj-1] == 'S'){
+				if(labH[posi][posj-1] == 'S' && dragaovivo == 0){
 					labH[9][9] = 'M';
 				}
-				else if(labH[posi][posj-1] != 'x' ){
+				else if(labH[posi][posj-1] != 'x' && labH[posi][posj-1] != 'S'){
 					labH[posi][posj] = ' ';
 					labH[posi][posj-1] = 'A';
 				}
 			}
 			if(move == 'E'){
-				if(labH[posi][posj+1] == 'S'){
+				if(labH[posi][posj+1] == 'S' && dragaovivo == 0){
 					labH[9][9] = 'M';
 				}
-				if(labH[posi][posj+1] != 'x' ){
+				if(labH[posi][posj+1] != 'x' && labH[posi][posj+1] != 'S'){
 					labH[posi][posj] = ' ';
 					labH[posi][posj+1] = 'A';
 				}
 			}
 			if(move == 'S'){
-				if(labH[posi+1][posj] == 'S'){
+				if(labH[posi+1][posj] == 'S' && dragaovivo == 0){
 					labH[9][9] = 'M';
 				}
-				if(labH[posi+1][posj] != 'x' ){
+				if(labH[posi+1][posj] != 'x' && labH[posi+1][posj] != 'S'){
 					labH[posi][posj] = ' ';
 					labH[posi+1][posj] = 'A';
 				}
 			}
 			if(move == 'N'){
-				if(labH[posi-1][posj] == 'S'){
+				if(labH[posi-1][posj] == 'S'&& dragaovivo == 0){
 					labH[9][9] = 'M';
 				}
-				if(labH[posi-1][posj] != 'x' ){
+				if(labH[posi-1][posj] != 'x' && labH[posi-1][posj] != 'S'){
 					labH[posi][posj] = ' ';
 					labH[posi-1][posj] = 'A';
 				}
